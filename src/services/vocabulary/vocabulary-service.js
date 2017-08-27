@@ -40,7 +40,11 @@ class VocabularyService {
 
     const service = plural(name);
     debug('proxy vocabulary find => ', service);
-    return this.app.service(service).find(params);
+    if (voc) {
+      return this.app.service(service).get(voc, params);
+    } else {
+      return this.app.service(service).find(params);
+    }
   }
 
   create(data, params) {
@@ -50,6 +54,39 @@ class VocabularyService {
     const service = plural(data.type);
     debug('proxy vocabulary create => ', service);
     return this.app.service(service).create(data, params);
+  }
+
+  update(id, data, params) {
+    assert(data.type, 'data.type not provided');
+    assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
+
+    const service = plural(data.type);
+    debug('proxy vocabulary update => ', service);
+    return this.app.service(service).update(id, data, params);
+  }
+
+  patch(id, data, params) {
+    assert(data.type, 'data.type not provided');
+    assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
+
+    const service = plural(data.type);
+    debug('proxy vocabulary patch => ', service);
+    return this.app.service(service).patch(id, data, params);
+  }
+
+  remove(id, params) {
+    params = params || { query: {} };
+    const type = id;
+    const voc = params.__action;
+    delete params.__action;
+    params.query.$soft  = params.query.$soft || true;
+    
+    assert(voc, 'vocabulary id not provided');
+    assert(fp.find(fp.propEq('name', type), this.vocabularies), `vocabulary ${type} not exists`);
+
+    const service = plural(type);
+    debug('proxy vocabulary remove => ', service);
+    return this.app.service(service).remove(voc, params);
   }
 }
 

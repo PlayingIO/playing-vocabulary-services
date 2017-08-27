@@ -2,10 +2,11 @@ import timestamps from 'mongoose-timestamp';
 import { plugins } from 'mostly-feathers-mongoose';
 
 const fields = {
-  name: { type: 'String', required: true  },
-  label: { type: 'String', required: true  },
+  id: { type: 'String', required: true  },
+  label_en: { type: 'String', required: true  },
+  label_zh: { type: 'String', required: true  },
   obsolete: { type: 'Boolean', default: false },
-  parent: { type: 'ObjectId' }
+  parent: { type: 'String' }
 };
 
 export default function(app, name) {

@@ -3,6 +3,7 @@ import SubjectModel from '~/models/subject-model';
 import defaultHooks from './subject-hooks';
 
 const defaultOptions = {
+  id: 'id',
   name: 'subjects'
 };
 
