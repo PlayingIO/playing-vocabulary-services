@@ -32,7 +32,8 @@ class VocabularyService {
 
   get(id, params) {
     params = params || { query: {} };
-    const name = '/' + join(id || '', params.__action || '');
+    const name = id;
+    const voc = params.__action;
     delete params.__action;
 
     assert(fp.find(fp.propEq('name', name), this.vocabularies), `vocabulary ${name} not exists`);
@@ -40,6 +41,15 @@ class VocabularyService {
     const service = plural(name);
     debug('proxy vocabulary find => ', service);
     return this.app.service(service).find(params);
+  }
+
+  create(data, params) {
+    assert(data.type, 'data.type not provided');
+    assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
+
+    const service = plural(data.type);
+    debug('proxy vocabulary create => ', service);
+    return this.app.service(service).create(data, params);
   }
 }
 
