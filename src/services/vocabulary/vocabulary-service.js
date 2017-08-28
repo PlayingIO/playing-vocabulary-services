@@ -46,9 +46,11 @@ class VocabularyService {
     } else {
       const label = (params.query.dbl10n === 'true' && params.query.lang)
         ? 'label_' + params.query.lang : 'label';
-      params.query[label] = params.query.term;
-      params.paginate = false;
-      params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
+      if (params.query.term) {
+        params.query[label] = params.query.term;
+        params.paginate = false;
+        params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
+      }
       return this.app.service(service).find(params).then(results => {
         return fp.map(entry => {
           entry.displayLabel = entry[label];
