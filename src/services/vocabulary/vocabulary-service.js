@@ -44,13 +44,17 @@ class VocabularyService {
     if (voc) {
       return this.app.service(service).get(voc, params);
     } else {
-      if (params.query.dbl10n === 'true' && params.query.lang) {
-        params.query['label_' + params.query.lang] = params.query.term;
-      } else {
-        params.query['label'] = params.query.term;
-      }
+      const label = (params.query.dbl10n === 'true' && params.query.lang)
+        ? 'label_' + params.query.lang : 'label';
+      params.query[label] = params.query.term;
+      params.paginate = false;
       params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
-      return this.app.service(service).find(params);
+      return this.app.service(service).find(params).then(results => {
+        return fp.map(entry => {
+          entry.displayLabel = entry[label];
+          return entry;
+        }, results.data || results);
+      });
     }
   }
 
