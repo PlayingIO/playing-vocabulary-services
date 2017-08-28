@@ -3,10 +3,8 @@ import { plugins } from 'mostly-feathers-mongoose';
 
 const fields = {
   id: { type: 'String', required: true  },
-  label_en: { type: 'String', required: true  },
-  label_zh: { type: 'String', required: true  },
-  obsolete: { type: 'Boolean', default: false },
-  parent: { type: 'String', default: null }
+  label: { type: 'String', required: true  },
+  obsolete: { type: 'Boolean', default: false }
 };
 
 export default function(app, name) {

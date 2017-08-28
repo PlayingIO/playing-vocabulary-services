@@ -31,11 +31,12 @@ class VocabularyService {
   }
 
   get(id, params) {
-    params = params || { query: {} };
-    const name = id;
+    params = Object.assign({ query: {} }, params);
+    let name = id;
     const voc = params.__action;
     delete params.__action;
 
+    if (params.query.name) name = params.query.name;
     assert(fp.find(fp.propEq('name', name), this.vocabularies), `vocabulary ${name} not exists`);
 
     const service = plural(name);
@@ -43,6 +44,12 @@ class VocabularyService {
     if (voc) {
       return this.app.service(service).get(voc, params);
     } else {
+      if (params.query.dbl10n === 'true' && params.query.lang) {
+        params.query['label_' + params.query.lang] = params.query.term;
+      } else {
+        params.query['label'] = params.query.term;
+      }
+      params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
       return this.app.service(service).find(params);
     }
   }
