@@ -1,8 +1,8 @@
 import assert from 'assert';
 import makeDebug from 'debug';
 import { join } from 'path';
+import fp from 'mostly-func';
 import { plural } from 'pluralize';
-import fp from 'ramda';
 
 import defaultHooks from './vocabulary-hooks';
 
