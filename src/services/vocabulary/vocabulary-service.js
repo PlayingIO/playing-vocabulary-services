@@ -51,9 +51,11 @@ class VocabularyService {
         params.paginate = false;
         params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
       }
+      params.query.$sort = params.query.$sort || { position: 1 };
       return this.app.service(service).find(params).then(results => {
         return fp.map(entry => {
-          entry.displayLabel = entry[label];
+          entry.dbl10n = params.query.dbl10n === true;
+          entry.displayLabel = entry[label];  // i10n
           return entry;
         }, results.data || results);
       });
