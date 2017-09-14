@@ -10,7 +10,7 @@ const fields = {
   parent: { type: 'String', default: null }
 };
 
-export default function(app, name) {
+export default function model (app, name) {
   const mongoose = app.get('mongoose');
   const schema = new mongoose.Schema(fields);
   schema.plugin(timestamps);
@@ -18,3 +18,5 @@ export default function(app, name) {
   schema.plugin(plugins.sortable, { classify: 'parent' });
   return mongoose.model(name, schema);
 }
+
+model.schema = fields;
