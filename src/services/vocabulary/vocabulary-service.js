@@ -51,7 +51,7 @@ class VocabularyService {
         params.paginate = false;
         params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
       }
-      params.query.$sort = params.query.$sort || { position: 1 };
+      params.query.$sort = params.query.$sort || { parent: 1, position: 1 };
       return this.app.service(service).find(params).then(results => {
         return fp.map(entry => {
           entry.dbl10n = params.query.dbl10n === true;
