@@ -1,7 +1,7 @@
 {
   "name": "playing-vocabulary-services",
-  "version": "1.0.0",
-  "description": "Fixed list of values (vocabularies) management microservices for playful application",
+  "version": "1.0.1",
+  "description": "Fixed list of values (vocabularies) management microservices for playful applications",
   "author": "Forafish",
   "license": "MIT",
   "main": "index.js",
