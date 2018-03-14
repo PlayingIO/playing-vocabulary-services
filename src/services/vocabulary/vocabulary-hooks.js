@@ -1,20 +1,19 @@
-import { hooks as auth } from 'feathers-authentication';
 import { hooks } from 'mostly-feathers-mongoose';
 
 module.exports = function(options = {}) {
   return {
     before: {
       create: [
-        auth.authenticate('jwt')
+        hooks.authenticate('jwt', options)
       ],
       update: [
-        auth.authenticate('jwt')
+        hooks.authenticate('jwt', options)
       ],
       patch: [
-        auth.authenticate('jwt')
+        hooks.authenticate('jwt', options)
       ],
       remove: [
-        auth.authenticate('jwt')
+        hooks.authenticate('jwt', options)
       ]
     },
     after: {
