@@ -89,7 +89,7 @@ class VocabularyService {
   }
 
   remove(id, params) {
-    params = params || { query: {} };
+    params = fp.assign({ query: {} }, params);
     const type = id;
     const voc = params.__action;
     delete params.__action;
