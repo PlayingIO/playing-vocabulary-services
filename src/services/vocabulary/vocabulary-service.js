@@ -13,23 +13,23 @@ const defaultOptions = {
 
 // Vocabulary proxy service to fix list of values
 class VocabularyService {
-  constructor(options) {
+  constructor (options) {
     this.options = Object.assign({}, defaultOptions, options);
     this.name = options.name;
     this.options = options;
     this.vocabularies = this.options.vocabularies || {};
   }
 
-  setup(app) {
+  setup (app) {
     this.app = app;
     this.hooks(defaultHooks(this.options));
   }
 
-  find(params) {
+  find (params) {
     return Promise.resolve(this.vocabularies);
   }
 
-  get(id, params) {
+  get (id, params) {
     params = Object.assign({ query: {} }, params);
     let name = id;
     const voc = params.__action;
@@ -61,7 +61,7 @@ class VocabularyService {
     }
   }
 
-  create(data, params) {
+  create (data, params) {
     assert(data.type, 'data.type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
@@ -70,7 +70,7 @@ class VocabularyService {
     return this.app.service(service).create(data, params);
   }
 
-  update(id, data, params) {
+  update (id, data, params) {
     assert(data.type, 'data.type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
@@ -79,7 +79,7 @@ class VocabularyService {
     return this.app.service(service).update(id, data, params);
   }
 
-  patch(id, data, params) {
+  patch (id, data, params) {
     assert(data.type, 'data.type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
@@ -88,7 +88,7 @@ class VocabularyService {
     return this.app.service(service).patch(id, data, params);
   }
 
-  remove(id, params) {
+  remove (id, params) {
     params = fp.assign({ query: {} }, params);
     const type = id;
     const voc = params.__action;
