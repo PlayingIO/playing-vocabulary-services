@@ -3,7 +3,7 @@ import { cache } from 'mostly-feathers-cache';
 
 import NatureEntity from '~/entities/nature-entity';
 
-module.exports = function (options = {}) {
+export default function (options = {}) {
   return {
     before: {
       all: [
