@@ -1,7 +1,7 @@
 import { hooks } from 'mostly-feathers-mongoose';
 import { cache } from 'mostly-feathers-cache';
 
-import NatureEntity from '~/entities/nature-entity';
+import NatureEntity from '~/entities/nature.entity';
 
 export default function (options = {}) {
   return {
@@ -30,4 +30,4 @@ export default function (options = {}) {
       ]
     }
   };
-};
+}

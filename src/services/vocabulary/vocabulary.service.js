@@ -3,9 +3,9 @@ import makeDebug from 'debug';
 import fp from 'mostly-func';
 import { plural } from 'pluralize';
 
-import defaultHooks from './vocabulary-hooks';
+import defaultHooks from './vocabulary.hooks';
 
-const debug = makeDebug('playing:content-services:path');
+const debug = makeDebug('playing:vocabulary-services:vocabulary');
 
 const defaultOptions = {
   name: 'paths'

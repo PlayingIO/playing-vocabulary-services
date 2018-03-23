@@ -1,6 +1,7 @@
 import { Service, createService } from 'mostly-feathers-mongoose';
-import NatureModel from '~/models/nature-model';
-import defaultHooks from './nature-hooks';
+
+import NatureModel from '~/models/nature.model';
+import defaultHooks from './nature.hooks';
 
 const defaultOptions = {
   id: 'id',

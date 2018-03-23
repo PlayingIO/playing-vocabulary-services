@@ -1,6 +1,7 @@
 import { Service, createService } from 'mostly-feathers-mongoose';
-import SubjectModel from '~/models/subject-model';
-import defaultHooks from './subject-hooks';
+
+import SubjectModel from '~/models/subject.model';
+import defaultHooks from './subject.hooks';
 
 const defaultOptions = {
   id: 'id',

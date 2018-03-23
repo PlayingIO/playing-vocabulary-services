@@ -1,6 +1,8 @@
 import { hooks } from 'mostly-feathers-mongoose';
 import { cache } from 'mostly-feathers-cache';
 
+import SubjectEntity from '~/entities/subject.entity';
+
 export default function (options = {}) {
   return {
     before: {
@@ -23,8 +25,9 @@ export default function (options = {}) {
     after: {
       all: [
         cache(options.cache),
+        hooks.presentEntity(SubjectEntity, options),
         hooks.responder()
       ]
     }
   };
-};
+}
