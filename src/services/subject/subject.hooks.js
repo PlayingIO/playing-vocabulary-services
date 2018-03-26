@@ -25,7 +25,7 @@ export default function (options = {}) {
     after: {
       all: [
         cache(options.cache),
-        hooks.presentEntity(SubjectEntity, options),
+        hooks.presentEntity(SubjectEntity, options.entities),
         hooks.responder()
       ]
     }
