@@ -4,6 +4,9 @@ const options = {
   timestamps: true
 };
 
+/**
+ * Subject vocabularies
+ */
 const fields = {
   id: { type: String, unique: true, required: true  },
   label_en: { type: String, required: true  },

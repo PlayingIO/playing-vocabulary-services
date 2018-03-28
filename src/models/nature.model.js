@@ -4,6 +4,9 @@ const options = {
   timestamps: true
 };
 
+/**
+ * Nature vocabularies
+ */
 const fields = {
   id: { type: String, unique: true, required: true  },
   label: { type: String, required: true  },
