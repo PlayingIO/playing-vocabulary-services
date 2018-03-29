@@ -15,8 +15,7 @@ const defaultOptions = {
 class VocabularyService {
   constructor (options) {
     this.options = Object.assign({}, defaultOptions, options);
-    this.name = options.name;
-    this.options = options;
+    this.name = this.options.name;
     this.vocabularies = this.options.vocabularies || {};
   }
 
