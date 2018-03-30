@@ -1,6 +1,6 @@
 import { Service, createService } from 'mostly-feathers-mongoose';
 
-import NatureModel from '~/models/nature.model';
+import NatureModel from '../../models/nature.model';
 import defaultHooks from './nature.hooks';
 
 const defaultOptions = {
@@ -8,7 +8,7 @@ const defaultOptions = {
   name: 'subjects'
 };
 
-class NatureService extends Service {
+export class NatureService extends Service {
   constructor (options) {
     options = Object.assign({}, defaultOptions, options);
     super(options);

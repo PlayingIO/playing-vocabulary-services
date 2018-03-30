@@ -12,7 +12,7 @@ const defaultOptions = {
 };
 
 // Vocabulary proxy service to fix list of values
-class VocabularyService {
+export class VocabularyService {
   constructor (options) {
     this.options = Object.assign({}, defaultOptions, options);
     this.name = this.options.name;

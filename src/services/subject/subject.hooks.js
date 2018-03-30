@@ -1,7 +1,7 @@
 import { hooks } from 'mostly-feathers-mongoose';
 import { cache } from 'mostly-feathers-cache';
 
-import SubjectEntity from '~/entities/subject.entity';
+import SubjectEntity from '../../entities/subject.entity';
 
 export default function (options = {}) {
   return {
