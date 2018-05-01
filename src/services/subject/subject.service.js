@@ -10,7 +10,7 @@ const defaultOptions = {
 
 export class SubjectService extends Service {
   constructor (options) {
-    options = Object.assign({}, defaultOptions, options);
+    options = fp.assign(defaultOptions, options);
     super(options);
   }
 
@@ -21,7 +21,7 @@ export class SubjectService extends Service {
 }
 
 export default function init (app, options, hooks) {
-  options = Object.assign({ ModelName: 'subject' }, options);
+  options = fp.assign({ ModelName: 'subject' }, options);
   return createService(app, SubjectService, SubjectModel, options);
 }
 
