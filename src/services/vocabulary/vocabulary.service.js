@@ -31,8 +31,8 @@ export class VocabularyService {
   get (id, params) {
     params = Object.assign({ query: {} }, params);
     let name = id;
-    const voc = params.__action;
-    delete params.__action;
+    const voc = params.action;
+    delete params.action;
 
     if (params.query.name) name = params.query.name;
     assert(fp.find(fp.propEq('name', name), this.vocabularies), `vocabulary ${name} not exists`);
@@ -90,8 +90,8 @@ export class VocabularyService {
   remove (id, params) {
     params = fp.assign({ query: {} }, params);
     const type = id;
-    const voc = params.__action;
-    delete params.__action;
+    const voc = params.action;
+    delete params.action;
     params.query.$soft  = params.query.$soft || true;
     
     assert(voc, 'vocabulary id not provided');
