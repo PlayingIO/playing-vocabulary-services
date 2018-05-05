@@ -1,4 +1,5 @@
 import { Service, createService } from 'mostly-feathers-mongoose';
+import fp from 'mostly-func';
 
 import NatureModel from '../../models/nature.model';
 import defaultHooks from './nature.hooks';
