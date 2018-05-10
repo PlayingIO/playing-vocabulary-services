@@ -29,7 +29,7 @@ export class VocabularyService {
   }
 
   get (id, params) {
-    params = Object.assign({ query: {} }, params);
+    params = fp.assign({ query: {} }, params);
     let name = id;
     const voc = params.action;
     delete params.action;
