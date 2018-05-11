@@ -22,7 +22,7 @@ export class SubjectService extends Service {
 }
 
 export default function init (app, options, hooks) {
-  options = fp.assign({ ModelName: 'subject' }, options);
+  options = { ModelName: 'subject', ...options };
   return createService(app, SubjectService, SubjectModel, options);
 }
 

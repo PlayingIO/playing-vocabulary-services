@@ -22,7 +22,7 @@ export class NatureService extends Service {
 }
 
 export default function init (app, options, hooks) {
-  options = fp.assign({ ModelName: 'nature' }, options);
+  options = { ModelName: 'nature', ...options };
   return createService(app, NatureService, NatureModel, options);
 }
 
