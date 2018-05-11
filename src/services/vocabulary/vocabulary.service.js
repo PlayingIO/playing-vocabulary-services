@@ -14,7 +14,7 @@ const defaultOptions = {
 // Vocabulary proxy service to fix list of values
 export class VocabularyService {
   constructor (options) {
-    this.options = fp.assign(defaultOptions, options);
+    this.options = fp.assignAll(defaultOptions, options);
     this.name = this.options.name;
     this.vocabularies = this.options.vocabularies || {};
   }
