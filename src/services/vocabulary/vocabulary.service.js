@@ -29,7 +29,7 @@ export class VocabularyService {
   }
 
   get (id, params) {
-    params = fp.assign({ query: {} }, params);
+    params = { query: {}, ...params };
     let name = id;
     const voc = params.action;
     delete params.action;
@@ -88,7 +88,7 @@ export class VocabularyService {
   }
 
   remove (id, params) {
-    params = fp.assign({ query: {} }, params);
+    params = { query: {}, ...params };
     const type = id;
     const voc = params.action;
     delete params.action;
