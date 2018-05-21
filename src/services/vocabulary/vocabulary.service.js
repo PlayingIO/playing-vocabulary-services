@@ -55,7 +55,7 @@ export class VocabularyService {
           entry.dbl10n = params.query.dbl10n === true;
           entry.displayLabel = entry[label];  // i10n
           return entry;
-        }, results && results.data || results || []);
+        }, fp.propOf('data', results) || []);
       });
     }
   }
