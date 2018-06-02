@@ -1,7 +1,7 @@
 Playing Vocabulary Services
 ===========================
 
-List of values (vocabularies) management microservices for playful applications.
+Vocabularies (list of values) management microservices for playful applications.
 
 # Usage
 
