@@ -4,6 +4,6 @@ const SubjectEntity = new Entity('Subject', {
   type: { default: 'subject' }
 });
 
-SubjectEntity.excepts('createdAt', 'updatedAt', 'destroyedAt');
+SubjectEntity.discard('createdAt', 'updatedAt', 'destroyedAt');
 
 export default SubjectEntity.asImmutable();
