@@ -1,6 +1,6 @@
 {
   "name": "playing-vocabulary-services",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Vocabularies (list of values) management microservices for building playful applications",
   "author": "Forafish",
   "license": "MIT",
