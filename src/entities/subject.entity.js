@@ -6,4 +6,4 @@ const SubjectEntity = new Entity('Subject', {
 
 SubjectEntity.discard('createdAt', 'updatedAt', 'destroyedAt');
 
-export default SubjectEntity.asImmutable();
+export default SubjectEntity.freeze();

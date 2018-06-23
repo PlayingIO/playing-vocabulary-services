@@ -6,4 +6,4 @@ const NatureEntity = new Entity('Nature', {
 
 NatureEntity.discard('createdAt', 'updatedAt', 'destroyedAt');
 
-export default NatureEntity.asImmutable();
+export default NatureEntity.freeze();
