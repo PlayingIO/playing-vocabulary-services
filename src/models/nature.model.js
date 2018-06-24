@@ -17,8 +17,8 @@ const fields = {
 export default function model (app, name) {
   const mongoose = app.get('mongoose');
   const schema = new mongoose.Schema(fields, options);
-  schema.plugin(plugins.softDelete);
-  schema.plugin(plugins.sortable, { classify: 'parent', delete: 'destroyedAt' });
+  schema.plugin(plugins.trashable);
+  schema.plugin(plugins.sortable, { classify: 'parent', trash: 'destroyedAt' });
   return mongoose.model(name, schema);
 }
 
