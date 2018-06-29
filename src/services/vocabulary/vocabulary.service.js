@@ -60,7 +60,7 @@ export class VocabularyService {
   }
 
   async create (data, params) {
-    assert(data.type, 'data.type not provided');
+    assert(data.type, 'type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
     const service = plural(data.type);
@@ -69,7 +69,7 @@ export class VocabularyService {
   }
 
   async update (id, data, params) {
-    assert(data.type, 'data.type not provided');
+    assert(data.type, 'type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
     const service = plural(data.type);
@@ -78,7 +78,7 @@ export class VocabularyService {
   }
 
   async patch (id, data, params) {
-    assert(data.type, 'data.type not provided');
+    assert(data.type, 'type not provided');
     assert(fp.find(fp.propEq('name', data.type), this.vocabularies), `vocabulary ${data.type} not exists`);
 
     const service = plural(data.type);
