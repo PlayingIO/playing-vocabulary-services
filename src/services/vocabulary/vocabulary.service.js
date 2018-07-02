@@ -50,7 +50,7 @@ export class VocabularyService {
         params.query = fp.omit(['name', 'dbl10n', 'localize', 'lang', 'term'], params.query);
       }
       params.query.$sort = params.query.$sort || { parent: 1, position: 1 };
-      const resutls = await this.app.service(service).find(params);
+      const results = await this.app.service(service).find(params);
       return fp.map(entry => {
         entry.dbl10n = params.query.dbl10n === true;
         entry.displayLabel = entry[label];  // i10n
