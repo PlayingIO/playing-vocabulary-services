@@ -1,4 +1,4 @@
-import Entity from 'mostly-entity';
+const Entity = require('mostly-entity');
 
 const SubjectEntity = new Entity('Subject', {
   type: { default: 'subject' }
@@ -6,4 +6,4 @@ const SubjectEntity = new Entity('Subject', {
 
 SubjectEntity.discard('createdAt', 'updatedAt', 'destroyedAt');
 
-export default SubjectEntity.freeze();
+module.exports = SubjectEntity.freeze();

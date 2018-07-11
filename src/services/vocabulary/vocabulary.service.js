@@ -1,9 +1,9 @@
-import assert from 'assert';
-import makeDebug from 'debug';
-import fp from 'mostly-func';
-import { plural } from 'pluralize';
+const assert = require('assert');
+const makeDebug = require('debug');
+const fp = require('mostly-func');
+const { plural } = require('pluralize');
 
-import defaultHooks from './vocabulary.hooks';
+const defaultHooks = require('./vocabulary.hooks');
 
 const debug = makeDebug('playing:vocabulary-services:vocabulary');
 
@@ -12,7 +12,7 @@ const defaultOptions = {
 };
 
 // Vocabulary proxy service to fix list of values
-export class VocabularyService {
+class VocabularyService {
   constructor (options) {
     this.options = fp.assignAll(defaultOptions, options);
     this.name = this.options.name;
@@ -102,8 +102,7 @@ export class VocabularyService {
   }
 }
 
-export default function init (app, options, hooks) {
+module.exports = function init (app, options, hooks) {
   return new VocabularyService(options);
-}
-
-init.Service = VocabularyService;
+};
+module.exports.Service = VocabularyService;

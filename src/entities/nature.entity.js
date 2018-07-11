@@ -1,4 +1,4 @@
-import Entity from 'mostly-entity';
+const Entity = require('mostly-entity');
 
 const NatureEntity = new Entity('Nature', {
   type: { default: 'nature' }
@@ -6,4 +6,4 @@ const NatureEntity = new Entity('Nature', {
 
 NatureEntity.discard('createdAt', 'updatedAt', 'destroyedAt');
 
-export default NatureEntity.freeze();
+module.exports = NatureEntity.freeze();
