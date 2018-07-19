@@ -92,7 +92,7 @@ class VocabularyService {
     const voc = params.action;
     delete params.action;
     params.query.$soft  = params.query.$soft || true;
-    
+
     assert(voc, 'vocabulary id not provided');
     assert(fp.find(fp.propEq('name', type), this.vocabularies), `vocabulary ${type} not exists`);
 
