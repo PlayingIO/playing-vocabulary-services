@@ -5,7 +5,7 @@ Vocabularies (list of values) management microservices for building playful appl
 
 # Documentation
 
-Please see the [documentation site](https://playingio.github.io).
+Please see the [documentation site](https://playingio.github.io) for more details.
 
 # Usage
 
