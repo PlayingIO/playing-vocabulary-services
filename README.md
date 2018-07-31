@@ -12,7 +12,7 @@ Please see the [documentation site](https://playingio.github.io) for more detail
 ## Installation
 
 ```bash
-npm install playing-vocabulary-services
+npm install playing-vocabulary-services --save
 ```
 
 # License
